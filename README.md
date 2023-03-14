@@ -1,9 +1,9 @@
-# \[Group name\]
+# \[politgrammering\]
 
 **Group members:**
-- A
-- B
-- C
+- Oliver á Rógvi
+- Johan Bjergkvist
+- Andreas Snog
 
 This repository contains  
 1. Inaugural project. 
