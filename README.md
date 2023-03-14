@@ -1,4 +1,4 @@
-# politgrammering
+# Politgrammering
 
 **Group members:**
 - Oliver á Rógvi
