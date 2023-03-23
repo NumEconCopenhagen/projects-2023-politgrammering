@@ -143,8 +143,8 @@ class HouseholdSpecializationModelClass:
 
     def solve_wF_vec(self,discrete=False):
         """ solve model for vector of female wages """
-
-        pass
+    
+    pass
 
     def run_regression(self):
         """ run regression """
@@ -153,11 +153,10 @@ class HouseholdSpecializationModelClass:
         sol = self.sol
 
         x = np.log(par.wF_vec)
-        y = np.array([0.1302838585816343, 0.0002032018652815805 , 0.0, -0.00014064323889808965, -0.10338283086961382])
+        y = np.array([0.4949566139123377, 0.40665208286994975, 0.28140125019335305, 0.15515343545735807, 0.21353137984263804])
         A = np.vstack([np.ones(x.size),x]).T
         sol.beta0,sol.beta1 = np.linalg.lstsq(A,y,rcond=None)[0]
         return sol
-
     def estimate(self,alpha=None,sigma=None):
         """ estimate alpha and sigma """
 
