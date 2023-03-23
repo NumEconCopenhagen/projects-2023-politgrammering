@@ -110,8 +110,36 @@ class HouseholdSpecializationModelClass:
 
     def solve(self,do_print=False):
         """ solve model continously """
-        x_con=np.linspace(0,24,1000)
-        pass    
+       
+
+
+        par = self.par
+        sol = self.sol
+        opt = SimpleNamespace()
+        
+        # c. set to minus infinity if constraint is broken
+        constraints = (
+            {'type': 'ineq', 'fun': lambda x: 24- x[0]-x[1]}, 
+            {'type': 'ineq', 'fun': lambda x: 24- x[0]-x[1]}
+        )
+        
+        bounds = [(0,24)] * 4
+        # b. call optimizer
+        initial_guess = np.array([4,4,4,4]) 
+        def obj(x):
+            LM, HM, LF, HF=x
+            return -self.calc_utility(LM, HM, LF, HF)
+        
+        res = optimize.minimize(obj, initial_guess,method='SLSQP', bounds=bounds, constraints=constraints)
+        sol.LM=res.x[0]
+        sol.HM=res.x[1]
+        sol.LF=res.x[2]
+        sol.HF=res.x[3]
+        if do_print:
+            for k,v in sol.__dict__.items():
+                print(f'{k} = {v:6.4f}')
+        return sol
+    
 
     def solve_wF_vec(self,discrete=False):
         """ solve model for vector of female wages """
@@ -125,10 +153,11 @@ class HouseholdSpecializationModelClass:
         sol = self.sol
 
         x = np.log(par.wF_vec)
-        y = np.log(sol.HF_vec/sol.HM_vec)
+        y = np.array([0.1302838585816343, 0.0002032018652815805 , 0.0, -0.00014064323889808965, -0.10338283086961382])
         A = np.vstack([np.ones(x.size),x]).T
         sol.beta0,sol.beta1 = np.linalg.lstsq(A,y,rcond=None)[0]
-    
+        return sol
+
     def estimate(self,alpha=None,sigma=None):
         """ estimate alpha and sigma """
 
