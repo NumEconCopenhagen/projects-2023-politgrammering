@@ -1,8 +1,8 @@
 # Politgrammering 
 
 **Group members:**
-- Oliver á Rógvi
-- Johan Bjergkvist
+- Oliver á Rógvi mgq278
+- Johan Bjergkvist rbw279
 - Andreas Snog
 
 This repository contains  
