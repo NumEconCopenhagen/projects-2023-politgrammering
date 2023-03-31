@@ -3,7 +3,7 @@
 **Group members:**
 - Oliver á Rógvi mgq278
 - Johan Bjergkvist rbw279
-- Andreas Snog
+- Andreas Snog rgs678
 
 This repository contains  
 1. Inaugural project. 
