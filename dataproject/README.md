@@ -1,5 +1,4 @@
 # Data analysis project
-
 Our project is titled **Electricity prices and consumption in Denmark** and is about electricity prices and consumption in Denmark in March 2023. In the analysis we look at three different sectors: "Single family homes", "Chemical industry" and "retail". 
 
 The **results** of the project can be seen from running [dataproject.ipynb](dataproject.ipynb).

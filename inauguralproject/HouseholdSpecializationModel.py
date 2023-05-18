@@ -202,7 +202,9 @@ class Figure:
         self.title = "x"
 
     def plot(self, ratioW, ratioH, f=None):
+        #Make the standard plot
         self.ax.plot(ratioW, ratioH, label="Model", color='black')
+        #If statement that makes the class usable in all the plots
         if f is not None:
             self.ax.scatter(ratioW, f, label="Siminski and Yetsenga")
         else:
