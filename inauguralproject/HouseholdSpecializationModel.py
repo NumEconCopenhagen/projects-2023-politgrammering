@@ -79,7 +79,7 @@ class HouseholdSpecializationModelClass:
         opt = SimpleNamespace()
         
         # a. all possible choices
-        x = np.linspace(0,24,49)
+        x = np.linspace(0+1e-8,24,49)
         LM,HM,LF,HF = np.meshgrid(x,x,x,x) # all combinations
     
         LM = LM.ravel() # vector
@@ -120,7 +120,7 @@ class HouseholdSpecializationModelClass:
             {'type': 'ineq', 'fun': lambda x: 24- x[0]-x[1]}
         
         #define bounds
-        bounds = [(0,24)] * 4
+        bounds = [(0+1e-8,24)] * 4
 
         # initial guess
         initial_guess = [3, 3, 3, 3]
