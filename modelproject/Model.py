@@ -47,8 +47,8 @@ class MalthusModel:
 
     def maximize_utility(self, X, L, A, alpha, Lambda, p, sigma, beta):
         I= self.income(X, L, A, alpha)
-        x0 = np.array([I/2, 1])  # initial guess for c and n
-        bounds = ((0, I), (0, None))  # bounds for c and n
+        x0 = np.array([I/2+1e-16, 1])  # initial guess for c and n
+        bounds = ((0+1e-16, I), (0+1e-16, None))  # bounds for c and n
         
         constraints = ({'type': 'ineq', 'fun': self.constraint_func, 'args': (I, Lambda, p, sigma)})
         res = minimize(lambda x: -self.utility(x, beta), x0, method='SLSQP', bounds=bounds, constraints=constraints)
