@@ -57,11 +57,13 @@ class HouseholdSpecializationModelClass:
         if par.sigma==1:
             H = HM**(1-par.alpha)*HF**par.alpha
         else :
-            H = ((1-par.alpha)*HM**((par.sigma-1)/par.sigma)+par.alpha*HF**((par.sigma-1)/par.sigma))**((par.sigma)/(par.sigma-1))
+            #Add 1e-8 to stop boundary error
+            H = ((1e-8+1-par.alpha)*HM**((1e-8+par.sigma-1)/par.sigma)+par.alpha*HF**((1e-8+par.sigma-1)/par.sigma))**((1e-8+par.sigma)/(par.sigma-1))
         
         # c. total consumption utility
         Q = C**par.omega*H**(1-par.omega)
-        utility = np.fmax(Q,1e-8)**(1-par.rho)/(1-par.rho)
+        #Add 1e-8 to stop boundary error
+        utility = np.fmax(Q,1e-8)**(1e-8+1-par.rho)/(1-par.rho)
 
         # d. disutlity of work
         epsilon_ = 1+1/par.epsilon
