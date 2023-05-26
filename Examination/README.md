@@ -1,5 +1,5 @@
 # Examination project
-In this project we have been given three problems. The first one being "optimal taxation with government spending" where given a utility function and parameters we find the social optimal tax rate and government consumption. Here we find
+In this project we have been given three problems. The first one being "optimal taxation with government spending" where given a utility function and parameters we find the social optimal tax rate and government consumption. Here we generally find with a tax rate of 0.5 will make government spendig, optimal utlity and optimal social utility the highest, with different parameters for the latter.
 
 In the second problem "Labor adjustment costs" 
 
